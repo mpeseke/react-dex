@@ -1,12 +1,12 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import PokemonList from "./components/PokemonList";
+import PokemonGrid from "./components/PokemonGrid";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <PokemonList />
+      <PokemonGrid />
     </QueryClientProvider>
   );
 }

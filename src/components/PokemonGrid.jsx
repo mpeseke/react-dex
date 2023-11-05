@@ -1,8 +1,11 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
-import { fetchAllPokemon } from "../apis/pokeAPI";
+import { fetchAllPokemon } from "../utils/api";
+import PokeTile from "./PokeTile";
 
-export default function PokemonList() {
+import styles from "./PokemonGrid.module.css";
+
+export default function PokemonGrid() {
   const [page, setPage] = useState(0);
 
   const {
@@ -25,18 +28,14 @@ export default function PokemonList() {
     return <span>Error: {error.message}</span>;
   }
 
-  console.log(pokemonList);
-
   return (
     <>
-      <ul>
+      <section className={styles.pokeGrid}>
         {pokemonList.results.map((pokemon, index) => (
-          <li key={index}>
-            <a href={pokemon.url}>{pokemon.name}</a>
-          </li>
+          <PokeTile key={index} monster={pokemon} />
         ))}
-      </ul>
-      <div>
+      </section>
+      <div className={styles.nav}>
         <button
           onClick={() => setPage((old) => Math.max(old - 1, 0))}
           disabled={page === 0}

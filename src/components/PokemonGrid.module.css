@@ -1,0 +1,15 @@
+.pokeGrid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.nav {
+  text-align: center;
+  div button {
+    margin: 0.5rem;
+  }
+}
+
+button {
+  margin: 0.5rem;
+}
