@@ -11,3 +11,18 @@ export const fetchPokemonData = async (name) => {
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`);
   return response.json();
 };
+
+export const fetchPokemonDataById = async (id) => {
+  const pokeDataUrl = `https://pokeapi.co/api/v2/pokemon/${id}`;
+  const pokeSpeciesDataUrl = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+
+  const responses = await Promise.all([
+    fetch(pokeDataUrl),
+    fetch(pokeSpeciesDataUrl),
+  ]);
+
+  const pokemonData = await responses[0].json();
+  const pokemonSpeciesData = await responses[1].json();
+
+  return { pokemonData, pokemonSpeciesData };
+};

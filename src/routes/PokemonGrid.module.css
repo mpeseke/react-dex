@@ -1,7 +1,7 @@
-.pokeGrid {
+/* .pokeGrid {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-}
+} */
 
 .nav {
   text-align: center;
