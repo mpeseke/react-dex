@@ -43,7 +43,7 @@ export default function PokeTile({ monster }) {
             alt={`image of ${pokemon.name}`}
           />
           <Stack>
-            <Text>
+            <Text textTransform="capitalize">
               #{pokemon.id} {pokemon.name}
             </Text>
             <Text className="classic-font">
@@ -57,7 +57,7 @@ export default function PokeTile({ monster }) {
         <CardFooter>
           <ButtonGroup>
             <Link to={`/pokemon/${pokemon.id}`}>
-              <Button>{pokemon.name}</Button>
+              <Button textTransform="capitalize">{pokemon.name}</Button>
             </Link>
             <Button>Add to Favorites</Button>
           </ButtonGroup>

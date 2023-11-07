@@ -1,13 +1,10 @@
-/* .pokeGrid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-} */
-
+.gridWrapper {
+  margin: 1rem;
+}
 .nav {
   text-align: center;
-  div button {
-    margin: 0.5rem;
-  }
+  padding: 2rem 0 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 button {

@@ -1,7 +1,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { fetchAllPokemon } from "../utils/api";
-import { Button, ButtonGroup, Grid } from "@chakra-ui/react";
+import { Button, ButtonGroup, Container, Grid } from "@chakra-ui/react";
 import PokeTile from "../components/PokeTile";
 import styles from "./PokemonGrid.module.css";
 
@@ -30,11 +30,13 @@ export default function PokemonGrid() {
 
   return (
     <>
-      <Grid templateColumns="repeat(4, 1fr)" gap={4}>
-        {pokemonList.results.map((pokemon, index) => (
-          <PokeTile key={index} monster={pokemon} />
-        ))}
-      </Grid>
+      <div className={styles.gridWrapper}>
+        <Grid templateColumns="repeat(4, 1fr)" gap={4}>
+          {pokemonList.results.map((pokemon, index) => (
+            <PokeTile key={index} monster={pokemon} />
+          ))}
+        </Grid>
+      </div>
       <div className={styles.nav}>
         <ButtonGroup>
           <Button
