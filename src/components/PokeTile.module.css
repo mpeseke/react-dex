@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "PokemonClassic";
+  src: local("PokemonClassic"),
+    url("../assets/fonts/pokemon-classic.ttf") format("truetype");
+}
+
+.classic-font {
+  font-family: "PokemonClassic";
+}

@@ -8,10 +8,12 @@ import {
   CardBody,
   CardFooter,
   Divider,
+  GridItem,
   Image,
   Stack,
   Text,
 } from "@chakra-ui/react";
+import TypePill from "./TypePill";
 
 /* eslint-disable react/prop-types */
 export default function PokeTile({ monster }) {
@@ -33,36 +35,34 @@ export default function PokeTile({ monster }) {
     return <span>Error: {error.message}</span>;
   }
   return (
-    <Card>
-      <CardBody>
-        <Image
-          src={pokemon.sprites.front_default}
-          alt={`image of ${pokemon.name}`}
-        />
-        <Stack>
-          <Text>
-            #{pokemon.id} {pokemon.name}
-            <span>
+    <GridItem>
+      <Card>
+        <CardBody>
+          <Image
+            src={pokemon.sprites.front_default}
+            alt={`image of ${pokemon.name}`}
+          />
+          <Stack>
+            <Text>
+              #{pokemon.id} {pokemon.name}
+            </Text>
+            <Text className="classic-font">
               {pokemon.types.map((type) => {
-                return (
-                  <div key={type.slot}>
-                    <p>{type.type.name}</p>
-                  </div>
-                );
+                return <TypePill key={type.slot} typeName={type.type.name} />;
               })}
-            </span>
-          </Text>
-        </Stack>
-      </CardBody>
-      <Divider />
-      <CardFooter>
-        <ButtonGroup>
-          <Link to={`/pokemon/${pokemon.id}`}>
-            <Button>{pokemon.name}</Button>
-          </Link>
-          <Button>Add to Favorites</Button>
-        </ButtonGroup>
-      </CardFooter>
-    </Card>
+            </Text>
+          </Stack>
+        </CardBody>
+        <Divider />
+        <CardFooter>
+          <ButtonGroup>
+            <Link to={`/pokemon/${pokemon.id}`}>
+              <Button>{pokemon.name}</Button>
+            </Link>
+            <Button>Add to Favorites</Button>
+          </ButtonGroup>
+        </CardFooter>
+      </Card>
+    </GridItem>
   );
 }
