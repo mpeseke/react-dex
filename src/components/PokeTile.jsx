@@ -23,8 +23,8 @@ export default function PokeTile({ monster }) {
     error,
     data: pokemon,
   } = useQuery({
-    queryKey: ["pokemon", monster.name],
-    queryFn: () => fetchPokemonData(monster.name),
+    queryKey: ["pokemon", monster.url],
+    queryFn: () => fetchPokemonData(monster.url),
   });
 
   if (isPending) {
@@ -34,13 +34,14 @@ export default function PokeTile({ monster }) {
   if (isError) {
     return <span>Error: {error.message}</span>;
   }
+
   return (
     <GridItem>
       <Card>
         <CardBody>
           <Image
-            src={pokemon.sprites.front_default}
             alt={`image of ${pokemon.name}`}
+            src={pokemon.sprites.front_default}
           />
           <Stack>
             <Text textTransform="capitalize">

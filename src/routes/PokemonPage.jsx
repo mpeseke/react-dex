@@ -10,13 +10,11 @@ export const loader = async ({ params }) => {
 export default function PokemonPage() {
   const { pokemon } = useLoaderData();
   const { pokemonData, pokemonSpeciesData } = pokemon;
-  console.log(pokemonData);
 
   return (
     <div>
       <p>{pokemonData.id}</p>
       <p>{pokemonData.name}</p>
-      
     </div>
   );
 }

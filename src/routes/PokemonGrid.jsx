@@ -1,7 +1,7 @@
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { fetchAllPokemon } from "../utils/api";
-import { Button, ButtonGroup, Container, Grid } from "@chakra-ui/react";
+import { Button, ButtonGroup, Grid } from "@chakra-ui/react";
 import PokeTile from "../components/PokeTile";
 import styles from "./PokemonGrid.module.css";
 
